@@ -1,44 +1,65 @@
-Plano de Testes
+#  Plano de Testes
 
-1. Objetivo da suíte
+##  1. Objetivo da Suíte
+O objetivo principal deste projeto é implementar testes automatizados robustos para validar o funcionamento correto, a integridade e as regras de negócio da API pública **ServeRest**.
 
-O objetivo é criar testes automatizados para validar o funcionamento da API da ServeRest.
+---
 
-2. Estratégia
+##  2. Estratégia e Arquitetura
 
-2.1 Os testes serão executados na camada de API.
+Para garantir uma suíte modular e de rápida execução, a estratégia técnica foi definida com as seguintes tecnologias:
 
-2.2 A linguagem de programação adotada é o Python, utilizando o framework Pytest para a estruturação e execução dos cenários.
+* **Camada de Teste** Automação focada exclusivamente na camada de API.
+* **Linguagem:** Python 3
+* **Framework Principal:** Pytest (estruturação, fixtures e execução dos cenários).
+* **Comunicação HTTP:** Biblioteca `requests` para requisições e asserções.
+* **Massa de Dados:** Biblioteca nativa `uuid` para geração de dados dinâmicos e e-mails únicos.
+* **Isolamento:** Gerenciamento de dependências via ambiente virtual nativo (`.venv`).
 
-2.3 Utilizarei a biblioteca requests para realizar as chamadas HTTP e a biblioteca nativa uuid para a geração de massa de dados dinâmica e e-mails únicos.
+---
 
-2.4 A gestão de dependências e a isolação do projeto serão feitas através de um ambiente virtual (.venv).
+##  3. Escopo do Projeto
 
-3. Escopo
+| Seção | Descrição | Endpoints / Tipos de Teste |
+| :--- | :--- | :--- |
+| **Dentro do Escopo** | Validação funcional e de contrato das rotas principais. | ` /usuarios`<br>` /login`<br>` /produtos` |
+| **Fora do Escopo** | Fluxos complexos de e-commerce e testes não-funcionais. | ` /carrinhos`<br>` Carga e Performance`<br>` Segurança (Pentest)` |
 
-3.1 Coberto: O escopo desta suíte de testes contempla a validação funcional das rotas de Usuários, Login e Produtos da API ServeRest.
+---
 
+##  4. Cenários de Teste a Implementar
 
-3.2 Fora do Escopo: O endpoint de Carrinhos ficará de fora desta etapa inicial de automação. Testes de carga, performance ou segurança também não compõem o escopo atual.
+###  Rota: Usuários (`/usuarios`)
+- [ ] Listar todos os usuários cadastrados.
+- [ ] Cadastrar novo usuário com sucesso.
+- [ ] Impedir cadastro com e-mail duplicado.
+- [ ] Validar payload de campos obrigatórios ausentes.
+- [ ] Buscar usuário específico por ID.
+- [ ] Atualizar dados de um usuário existente.
+- [ ] Excluir usuário do sistema.
 
-4. Cenários a Implementar
+###  Rota: Login (`/login`)
+- [ ] Autenticar com credenciais válidas (geração de token).
+- [ ] Bloquear autenticação com senha incorreta.
+- [ ] Bloquear autenticação com e-mail inexistente.
+- [ ] Validar envio de requisição com campos vazios.
 
-4.1 Usuários: Listar usuários, cadastrar com sucesso, cadastrar com email duplicado, cadastrar com campos faltando, buscar por ID, atualizar e excluir.
+###  Rota: Produtos (`/produtos`)
+- [ ] Listar todos os produtos cadastrados.
+- [ ] Cadastrar produto válido (requer token de administrador).
+- [ ] Bloquear cadastro de produto sem token de administrador.
+- [ ] Buscar produto específico por ID.
+- [ ] Atualizar dados de um produto.
+- [ ] Excluir produto do sistema.
 
+---
 
-4.2 Login: Validar autenticação com credenciais corretas, tentar login com senha incorreta, tentar login com email inexistente e testar o envio de requisição com campos vazios.
+##  5. Critérios de Qualidade
 
+Para que um teste seja aceito na suíte oficial, ele deve cumprir os cinco pilares abaixo:
 
-4.3 Produtos: Listar produtos, cadastrar possuindo token de administrador, tentar cadastrar sem possuir token de administrador, buscar produto por ID, atualizar e excluir.
-
-5. Critérios de Qualidade 
-
-5.1 Nomenclatura: Os testes devem possuir nomes claros e descritivos em relação ao cenário testado.
-
-5.2 Independência: Cada teste deve ser capaz de rodar sozinho ou em paralelo de forma totalmente independente, sem depender do estado deixado por outro teste.
-
-5.3 Validações: Todos os testes devem validar o status code retornado e a estrutura/mensagem do corpo da resposta (JSON).
-
-5.4 Massa de Dados: É obrigatório o uso de geração de emails dinâmicos para a criação de usuários, evitando conflitos na base de dados da API.
-
-5.5 Documentação: O projeto deve conter um arquivo README na raiz explicando o passo a passo para a execução da suíte.
+1. **Nomenclatura Semântica:** Os nomes das funções de teste devem ser autoexplicativos (ex: `test_cadastro_usuario_com_sucesso`).
+2. **Independência Total:** Nenhum teste pode depender do resultado ou estado deixado por outro. Devem rodar de forma isolada e em paralelo.
+3. **Asserções:** Os cenários devem validar o *Status Code* e o Contrato *(JSON Schema)*.
+4. **Massa Dinâmica:** Proibido o uso de e-mails fixos (*hardcoded*) para fluxos de criação, evitando conflitos na base.
+5. **Documentação Viva:** O projeto deve conter um `README.md` detalhando os pré-requisitos, instalação e comandos de execução.
