@@ -101,7 +101,7 @@ pytest --cov=api --cov=fixtures --cov=schemas --cov=utils --cov-report=html
 
 ## Cenários de Teste Implementados
 
-### /usuarios (7 testes)
+### /usuarios
 
 - Listar usuários com sucesso
 - Cadastrar usuário com dados válidos
@@ -111,14 +111,14 @@ pytest --cov=api --cov=fixtures --cov=schemas --cov=utils --cov-report=html
 - Atualizar usuário existente
 - Excluir usuário do sistema
 
-### /login (4 testes)
+### /login
 
 - Autenticar com credenciais válidas (geração de token)
 - Bloquear autenticação com senha incorreta
 - Bloquear autenticação com e-mail inexistente
 - Validar rejeição com campos vazios
 
-### /produtos (9 testes)
+### /produtos
 
 - Listar produtos com sucesso
 - Cadastrar produto com token de admin
@@ -127,13 +127,6 @@ pytest --cov=api --cov=fixtures --cov=schemas --cov=utils --cov-report=html
 - Buscar produto por ID válido/inválido
 - Atualizar produto existente
 - Excluir produto do sistema
-
-## Resumo
-
-- **Total de Testes:** 20
-- **Arquitetura:** Camadas bem definidas (API Client → Test Layer)
-- **Isolamento:** Fixtures com escopo `function` para total independência
-- **Massa de Dados:** Geração dinâmica com UUID para evitar conflitos
 
 ## Melhorias Futuras
 
