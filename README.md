@@ -13,6 +13,7 @@ Suíte de testes automatizados para validação de funcionalidade e contrato da 
 ![Python](https://img.shields.io/badge/Python-3.8+-blue)
 ![Pytest](https://img.shields.io/badge/Pytest-9.1.0-green)
 ![Requests](https://img.shields.io/badge/Requests-2.34.2-orange)
+![jsonschema](https://img.shields.io/badge/JSON%20Schema-jsonschema-blueviolet)
 ![pytest-cov](https://img.shields.io/badge/pytest--cov-7.1.0-yellow)
 ![Coverage](https://img.shields.io/badge/coverage-7.14.1-brightgreen)
 
@@ -133,14 +134,19 @@ pytest --cov=api --cov=fixtures --cov=schemas --cov=utils --cov-report=html
 O projeto utiliza **GitHub Actions** para garantir a qualidade do código a cada alteração.
 
 ### Testes Automatizados
+
 Sempre que um novo código for enviado (`push`) ou um `pull request` for aberto para as branches `main` ou `master`, os testes com o **Pytest** são executados automaticamente em um ambiente Ubuntu rodando Python 3.11.
 
 Para rodar os testes localmente, use o comando:
+
 ```bash
 pytest
 ```
+
 ### Relatório Visual de Testes
+
 A cada execução no GitHub Actions, um relatório detalhado em formato HTML é gerado. Para acessá-lo e baixá-lo:
+
 1. Vá até a aba **Actions** no repositório do GitHub.
 2. Clique na execução mais recente da lista.
 3. Role a página até o final na seção **Artifacts** (Artefatos).

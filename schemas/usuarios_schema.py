@@ -3,11 +3,49 @@ Schemas de validação de contrato para o endpoint /usuarios.
 Usados para garantir que a estrutura do JSON de resposta é a esperada.
 """
 
-# Campos obrigatórios na listagem de usuários
-SCHEMA_LISTAR_USUARIOS = {"quantidade", "usuarios"}
+SCHEMA_LISTAR_USUARIOS = {
+    "type": "object",
+    "required": ["quantidade", "usuarios"],
+    "properties": {
+        "quantidade": {"type": "integer"},
+        "usuarios": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "required": ["_id", "nome", "email", "password", "administrador"],
+                "properties": {
+                    "_id": {"type": "string"},
+                    "nome": {"type": "string"},
+                    "email": {"type": "string"},
+                    "password": {"type": "string"},
+                    "administrador": {"type": "string"},
+                },
+                "additionalProperties": False,
+            },
+        },
+    },
+    "additionalProperties": False,
+}
 
-# Campos obrigatórios num objeto de usuário individual
-SCHEMA_USUARIO = {"nome", "email", "password", "administrador", "_id"}
+SCHEMA_USUARIO = {
+    "type": "object",
+    "required": ["_id", "nome", "email", "password", "administrador"],
+    "properties": {
+        "_id": {"type": "string"},
+        "nome": {"type": "string"},
+        "email": {"type": "string"},
+        "password": {"type": "string"},
+        "administrador": {"type": "string"},
+    },
+    "additionalProperties": False,
+}
 
-# Campos retornados no cadastro de usuário
-SCHEMA_CADASTRO_SUCESSO = {"message", "_id"}
+SCHEMA_CADASTRO_SUCESSO = {
+    "type": "object",
+    "required": ["message", "_id"],
+    "properties": {
+        "message": {"type": "string"},
+        "_id": {"type": "string"},
+    },
+    "additionalProperties": False,
+}

@@ -2,11 +2,49 @@
 Schemas de validação de contrato para o endpoint /produtos.
 """
 
-# Campos obrigatórios na listagem de produtos
-SCHEMA_LISTAR_PRODUTOS = {"quantidade", "produtos"}
+SCHEMA_LISTAR_PRODUTOS = {
+    "type": "object",
+    "required": ["quantidade", "produtos"],
+    "properties": {
+        "quantidade": {"type": "integer"},
+        "produtos": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "required": ["_id", "nome", "preco", "descricao", "quantidade"],
+                "properties": {
+                    "_id": {"type": "string"},
+                    "nome": {"type": "string"},
+                    "preco": {"type": "number"},
+                    "descricao": {"type": "string"},
+                    "quantidade": {"type": "integer"},
+                },
+                "additionalProperties": False,
+            },
+        },
+    },
+    "additionalProperties": False,
+}
 
-# Campos obrigatórios num objeto de produto individual
-SCHEMA_PRODUTO = {"nome", "preco", "descricao", "quantidade", "_id"}
+SCHEMA_PRODUTO = {
+    "type": "object",
+    "required": ["_id", "nome", "preco", "descricao", "quantidade"],
+    "properties": {
+        "_id": {"type": "string"},
+        "nome": {"type": "string"},
+        "preco": {"type": "number"},
+        "descricao": {"type": "string"},
+        "quantidade": {"type": "integer"},
+    },
+    "additionalProperties": False,
+}
 
-# Campos retornados no cadastro de produto
-SCHEMA_CADASTRO_SUCESSO = {"message", "_id"}
+SCHEMA_CADASTRO_SUCESSO = {
+    "type": "object",
+    "required": ["message", "_id"],
+    "properties": {
+        "message": {"type": "string"},
+        "_id": {"type": "string"},
+    },
+    "additionalProperties": False,
+}

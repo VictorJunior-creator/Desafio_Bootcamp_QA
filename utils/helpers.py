@@ -2,17 +2,20 @@
 Funções auxiliares reutilizáveis para validações comuns nos testes.
 """
 
+from jsonschema import ValidationError, validate
 
-def validar_schema(body: dict, campos_esperados: set) -> None:
+
+def validar_schema(body: dict, schema: dict) -> None:
     """
-    Valida que todos os campos esperados estão presentes no corpo da resposta.
+    Valida a resposta JSON contra um schema JSON Schema.
 
     Args:
         body: dicionário retornado pela API
-        campos_esperados: conjunto de chaves obrigatórias
+        schema: JSON Schema que descreve a estrutura esperada
     """
-    campos_ausentes = campos_esperados - body.keys()
-    assert not campos_ausentes, (
-        f"Campos ausentes na resposta: {campos_ausentes}. "
-        f"Resposta recebida: {body}"
-    )
+    try:
+        validate(instance=body, schema=schema)
+    except ValidationError as error:
+        raise AssertionError(
+            f"Resposta não corresponde ao schema: {error.message}\nResposta: {body}"
+        )

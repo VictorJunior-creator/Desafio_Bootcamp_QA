@@ -2,8 +2,19 @@
 Schemas de validação de contrato para o endpoint /login.
 """
 
-# Campos retornados num login bem-sucedido
-SCHEMA_LOGIN_SUCESSO = {"message", "authorization"}
+SCHEMA_LOGIN_SUCESSO = {
+    "type": "object",
+    "required": ["message", "authorization"],
+    "properties": {
+        "message": {"type": "string"},
+        "authorization": {"type": "string"},
+    },
+    "additionalProperties": False,
+}
 
-# Campos retornados num login com falha
-SCHEMA_LOGIN_FALHA = {"message"}
+SCHEMA_LOGIN_FALHA = {
+    "type": "object",
+    "required": ["message"],
+    "properties": {"message": {"type": "string"}},
+    "additionalProperties": False,
+}
