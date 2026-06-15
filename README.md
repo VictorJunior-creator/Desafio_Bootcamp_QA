@@ -38,12 +38,14 @@ requirements.txt   → Dependências do projeto
 ## Instalação
 
 1. **Clone o repositório:**
+
    ```bash
    git clone <seu-repo>
    cd Python_Desafio_Bootcamp
    ```
 
 2. **Crie um ambiente virtual:**
+
    ```bash
    python -m venv .venv
    ```
@@ -66,16 +68,19 @@ requirements.txt   → Dependências do projeto
 ## Como Executar os Testes
 
 **Executar toda a suíte:**
+
 ```bash
 pytest
 ```
 
 **Executar com logs detalhados:**
+
 ```bash
 pytest -v
 ```
 
 **Executar testes de um endpoint específico:**
+
 ```bash
 pytest -m usuarios      # Testes de /usuarios
 pytest -m login         # Testes de /login
@@ -83,11 +88,13 @@ pytest -m produtos      # Testes de /produtos
 ```
 
 **Executar um arquivo específico:**
+
 ```bash
 pytest tests/test_usuarios.py
 ```
 
 **Gerar relatório de cobertura:**
+
 ```bash
 pytest --cov=api --cov=fixtures --cov=schemas --cov=utils --cov-report=html
 ```
@@ -95,6 +102,7 @@ pytest --cov=api --cov=fixtures --cov=schemas --cov=utils --cov-report=html
 ## Cenários de Teste Implementados
 
 ### /usuarios (7 testes)
+
 - Listar usuários com sucesso
 - Cadastrar usuário com dados válidos
 - Bloquear cadastro com e-mail duplicado
@@ -104,12 +112,14 @@ pytest --cov=api --cov=fixtures --cov=schemas --cov=utils --cov-report=html
 - Excluir usuário do sistema
 
 ### /login (4 testes)
+
 - Autenticar com credenciais válidas (geração de token)
 - Bloquear autenticação com senha incorreta
 - Bloquear autenticação com e-mail inexistente
 - Validar rejeição com campos vazios
 
 ### /produtos (9 testes)
+
 - Listar produtos com sucesso
 - Cadastrar produto com token de admin
 - Bloquear cadastro sem token de autenticação
