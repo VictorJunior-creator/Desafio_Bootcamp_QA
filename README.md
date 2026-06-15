@@ -10,11 +10,11 @@ Suíte de testes automatizados para validação de funcionalidade e contrato da 
 
 ## Tecnologias Utilizadas
 
-- Python 3.8+
-- pytest 9.1.0
-- requests 2.34.2
-- pytest-cov 7.1.0
-- coverage 7.14.1
+![Python](https://img.shields.io/badge/Python-3.8+-blue)
+![Pytest](https://img.shields.io/badge/Pytest-9.1.0-green)
+![Requests](https://img.shields.io/badge/Requests-2.34.2-orange)
+![pytest-cov](https://img.shields.io/badge/pytest--cov-7.1.0-yellow)
+![Coverage](https://img.shields.io/badge/coverage-7.14.1-brightgreen)
 
 ## Estrutura do Projeto
 
@@ -40,7 +40,7 @@ requirements.txt   → Dependências do projeto
 1. **Clone o repositório:**
 
    ```bash
-   git clone <seu-repo>
+   git clone https://github.com/VictorJunior-creator/Desafio_Bootcamp_QA
    cd Python_Desafio_Bootcamp
    ```
 
@@ -135,17 +135,6 @@ pytest --cov=api --cov=fixtures --cov=schemas --cov=utils --cov-report=html
 - **Isolamento:** Fixtures com escopo `function` para total independência
 - **Massa de Dados:** Geração dinâmica com UUID para evitar conflitos
 
-## Boas Práticas Aplicadas
-
-✅ Fixtures com setup/teardown automático
-✅ Geração dinâmica de dados com UUID
-✅ Validação de status code + contrato JSON
-✅ Naming semântico e autoexplicativo
-✅ Separação clara de responsabilidades
-✅ Testes totalmente independentes e paralelos
-✅ Marcadores pytest personalizados por endpoint
-✅ Cobertura de código monitorada
-
 ## Melhorias Futuras
 
 - Implementação de testes para endpoint `/carrinhos`
@@ -153,13 +142,3 @@ pytest --cov=api --cov=fixtures --cov=schemas --cov=utils --cov-report=html
 - Integração com CI/CD (GitHub Actions)
 - Relatórios em formato HTML com histórico
 - Testes de segurança (validação de inputs maliciosos)
-
-## Autor
-
-Victor Oliveira
-
-GitHub:
-https://github.com/VictorJunior-creator
-
-LinkedIn:
-https://linkedin.com/in/seu-linkedin
