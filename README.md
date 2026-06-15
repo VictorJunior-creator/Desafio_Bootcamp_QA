@@ -13,7 +13,7 @@ Suíte de testes automatizados para validação de funcionalidade e contrato da 
 ![Python](https://img.shields.io/badge/Python-3.8+-blue)
 ![Pytest](https://img.shields.io/badge/Pytest-9.1.0-green)
 ![Requests](https://img.shields.io/badge/Requests-2.34.2-orange)
-![jsonschema](https://img.shields.io/badge/JSON%20Schema-jsonschema-blueviolet)
+![JSON Schema](https://img.shields.io/badge/JSON%20Schema-4.21.1-blueviolet)
 ![pytest-cov](https://img.shields.io/badge/pytest--cov-7.1.0-yellow)
 ![Coverage](https://img.shields.io/badge/coverage-7.14.1-brightgreen)
 
