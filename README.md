@@ -128,10 +128,20 @@ pytest --cov=api --cov=fixtures --cov=schemas --cov=utils --cov-report=html
 - Atualizar produto existente
 - Excluir produto do sistema
 
+## Integração Contínua
+
+O projeto utiliza **GitHub Actions** para garantir a qualidade do código a cada alteração.
+
+### Testes Automatizados
+Sempre que um novo código for enviado (`push`) ou um `pull request` for aberto para as branches `main` ou `master`, os testes com o **Pytest** são executados automaticamente em um ambiente Ubuntu rodando Python 3.11.
+
+Para rodar os testes localmente, use o comando:
+```bash
+pytest
+```
 ## Melhorias Futuras
 
 - Implementação de testes para endpoint `/carrinhos`
 - Testes de carga e performance
-- Integração com CI/CD (GitHub Actions)
 - Relatórios em formato HTML com histórico
 - Testes de segurança (validação de inputs maliciosos)
