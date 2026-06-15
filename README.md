@@ -128,7 +128,7 @@ pytest --cov=api --cov=fixtures --cov=schemas --cov=utils --cov-report=html
 - Atualizar produto existente
 - Excluir produto do sistema
 
-## Integração Contínua
+## Integração Contínua (CI)
 
 O projeto utiliza **GitHub Actions** para garantir a qualidade do código a cada alteração.
 
@@ -139,9 +139,15 @@ Para rodar os testes localmente, use o comando:
 ```bash
 pytest
 ```
+### Relatório Visual de Testes
+A cada execução no GitHub Actions, um relatório detalhado em formato HTML é gerado. Para acessá-lo e baixá-lo:
+1. Vá até a aba **Actions** no repositório do GitHub.
+2. Clique na execução mais recente da lista.
+3. Role a página até o final na seção **Artifacts** (Artefatos).
+4. Baixe o arquivo `relatorio-de-testes`.
+
 ## Melhorias Futuras
 
 - Implementação de testes para endpoint `/carrinhos`
 - Testes de carga e performance
-- Relatórios em formato HTML com histórico
 - Testes de segurança (validação de inputs maliciosos)
