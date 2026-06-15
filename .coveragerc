@@ -1,0 +1,20 @@
+[run]
+# Módulos monitorados pela cobertura
+source =
+    api
+    fixtures
+    schemas
+    utils
+
+# Exclui arquivos de init vazios e código não executável
+omit =
+    */__init__.py
+    .venv/*
+
+[report]
+# Exibe linhas não cobertas
+show_missing = true
+# Ignora linhas de pragma
+exclude_lines =
+    pragma: no cover
+    if __name__ == .__main__.:
